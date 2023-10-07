@@ -3,6 +3,8 @@
   Properties
   {
     _MainTex("Texture", 2D) = "white" {}
+
+    // 이 부분을 수정해서 10개의 레이어를 만들수도?
     _Color0("Color 0",Color) = (0,0,0,1)
       _Color1("Color 1",Color) = (0,.9,.2,1)
       _Color2("Color 2",Color) = (.9,1,.3,1)

@@ -7,7 +7,7 @@ public class QuadScript : MonoBehaviour
   Material mMaterial;
   MeshRenderer mMeshRenderer;
 
-  float[] mPoints;
+  // float[] mPoints;
 
   float[] GazePos_X;
   float[] GazePos_Y;
@@ -71,18 +71,23 @@ public class QuadScript : MonoBehaviour
 
   public void addHitPoint(float xp,float yp)
   {
-    mPoints[mHitCount * 3] = xp;
-    mPoints[mHitCount * 3 + 1] = yp;
-    mPoints[mHitCount * 3 + 2] = Random.Range(1f, 3f);
+    // mPoints[mHitCount * 3] = xp;
+    // mPoints[mHitCount * 3 + 1] = yp;
+    // mPoints[mHitCount * 3 + 2] = Random.Range(1f, 3f);
 
     GazePos_X[mHitCount] = xp;
     GazePos_Y[mHitCount] = yp;
     Intensity[mHitCount] = Random.Range(1f,3f);
 
     mHitCount++;
-    mHitCount %= 32;
+    mHitCount %= 1024;
 
-    mMaterial.SetFloatArray("_Hits", mPoints);
+    // mMaterial.SetFloatArray("_Hits", mPoints);
+
+    mMaterial.SetFloatArray("GazePos_X", GazePos_X);
+    mMaterial.SetFloatArray("GazePos_Y", GazePos_Y);
+    mMaterial.SetFloatArray("Intensity", Intensity);
+
     mMaterial.SetInt("_HitCount", mHitCount);
 
     mMaterial.SetFloatArray()
